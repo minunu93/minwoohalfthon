@@ -29,3 +29,17 @@
 
 <%= link_to 'Edit', edit_dining_path(@dining) %> |
 <%= link_to 'Back', dinings_path %>
+
+
+<form action="/comments" method="post">
+  <input type="hidden" name="comment[dining_id]" value="<%=@dining.id%>">
+  <textarea name="comment[content]"></textarea>
+  <button>댓글</button>
+</form>
+
+
+
+<% @dining.comments.each do |c| %>
+  <%= c.content %><%= link_to 'Destroy', c, method: :delete, data: { confirm: 'Are you sure?' } %><br> 
+<% end %>
+

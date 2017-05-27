@@ -3,6 +3,11 @@ class DiningsController < ApplicationController
   
   
   def home
+    # reset_session
+    @dinings = Dining.all
+    unless session[:user_id].nil?
+      @user = User.find(session[:user_id])
+    end
     @dinings = Dining.all
   end
   
@@ -10,11 +15,13 @@ class DiningsController < ApplicationController
   # GET /dinings.json
   def index
     @dinings = Dining.all
+ 
   end
 
   # GET /dinings/1
   # GET /dinings/1.json
   def show
+       @dining = Dining.find(params[:id])
   end
 
   # GET /dinings/new
@@ -30,7 +37,7 @@ class DiningsController < ApplicationController
   # POST /dinings.json
   def create
     @dining = Dining.new(dining_params)
-
+    @dining.user_id = session[:user_id]
     respond_to do |format|
       if @dining.save
         format.html { redirect_to @dining, notice: 'Dining was successfully created.' }

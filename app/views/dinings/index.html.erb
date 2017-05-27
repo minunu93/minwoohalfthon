@@ -4,14 +4,6 @@
 <hr>
 
 <h1>Listing Dinings</h1>
-<%unless session[:user_id].nil?%>
-  <h4>반갑습니다, <%= @user_email %></h4>
-  <a href = "sessions/destroy">로그아웃</a>
-  
-  <% else %>
-  <a href = "sessions/new">로그인</a><br>
-  <a href = "users/new">회원가입</a><br>
-<%end%>
 <table>
   <thead>
     <tr>
@@ -43,6 +35,7 @@
 
 
 
+<br>
 <br>
 
 <%= link_to 'New Dining', new_dining_path %>

@@ -6,7 +6,8 @@ class CreateDinings < ActiveRecord::Migration
       t.text :content
       t.string :location
       t.string :phone
-
+      t.integer :user_id
+      
       t.timestamps null: false
     end
   end

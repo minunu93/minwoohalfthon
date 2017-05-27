@@ -23,6 +23,11 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<style>
+    body{
+        padding-top: 100px;
+    }
+</style>
 </head>
 <body>
  
@@ -55,6 +60,19 @@
                      <li>
                         <a href="#">Q&A</a>
                     </li>
+                    <%unless session[:user_id].nil?%>
+                      <li>
+                          <a href = "/sessions/destroy">로그아웃</a>
+                      </li>
+                      <% else %>
+                       <li>
+                          <a href = "/sessions/new">로그인</a>
+                      </li>
+                       <li>
+                          <a href = "/users/new">회원가입</a>
+                      </li>
+                      
+                    <%end%>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

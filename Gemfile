@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'hirb'
 gem 'paperclip'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.0.0.alpha6'
