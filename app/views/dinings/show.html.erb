@@ -1,0 +1,44 @@
+<%= image_tag @dining.image.url(:medium) %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @dining.name %>
+</p>
+
+<p>
+  <strong>Food:</strong>
+  <%= @dining.food %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @dining.content %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @dining.location %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @dining.phone %>
+</p>
+
+<%= link_to 'Edit', edit_dining_path(@dining) %> |
+<%= link_to 'Back', dinings_path %>
+
+
+<form action="/comments" method="post">
+  <input type="hidden" name="comment[dining_id]" value="<%=@dining.id%>">
+  <textarea name="comment[content]"></textarea>
+  <button>댓글</button>
+</form>
+
+
+
+<% @dining.comments.each do |c| %>
+  <%= c.content %><%= link_to 'Destroy', c, method: :delete, data: { confirm: 'Are you sure?' } %><br> 
+<% end %>

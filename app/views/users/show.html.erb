@@ -1,0 +1,46 @@
+<%= image_tag @user.profileimage.url(:medium) %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Pw:</strong>
+  <%= @user.pw %>
+</p>
+
+<p>
+  <strong>Food:</strong>
+  <%= @user.food %>
+</p>
+
+<p>
+  <strong>Phon:</strong>
+  <%= @user.phon %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @user.position %>
+</p>
+
+<p>
+  <strong>Food:</strong>
+  <%= @user.food %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @user.description %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
